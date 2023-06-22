@@ -164,7 +164,7 @@ func processResourceRequest(ctx context.Context, payload string, clientInfo stri
 
 	responseMsg := protocol.Message{
 		Header:  protocol.ResponseSolution,
-		Payload: Quotes[rand.Intn(3)],
+		Payload: Quotes[rand.Intn(len(Quotes))],
 	}
 
 	return responseMsg, nil
