@@ -1,4 +1,4 @@
 ServerHost: localhost
-ServerPort: 3333
+ServerPort: 8080
 HashcashZerosCount: 3
 HashcashMaxIterations: 1000000

@@ -3,12 +3,13 @@ package config
 import (
 	"os"
 
+	"github.com/kelseyhightower/envconfig"
 	"gopkg.in/yaml.v3"
 )
 
 type Config struct {
-	ServerHost            string `yaml:"ServerHost"`
-	ServerPort            int    `yaml:"ServerPort"`
+	ServerHost            string `yaml:"ServerHost" envconfig:"SERVER_HOST"`
+	ServerPort            int    `yaml:"ServerPort" envconfig:"SERVER_PORT"`
 	HashcashZerosCount    int    `yaml:"HashcashZerosCount"`
 	HashcashMaxIterations int    `yaml:"HashcashMaxIterations"`
 }
@@ -27,6 +28,7 @@ func Load(filePath string) (*Config, error) {
 	if err != nil {
 		return nil, err
 	}
+	err = envconfig.Process("", config)
 
-	return config, nil
+	return config, err
 }

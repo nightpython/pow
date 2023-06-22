@@ -10,11 +10,10 @@ const (
 	Quit              = iota // Quit indicates that either the server or client should close the connection.
 	RequestChallenge         // RequestChallenge is a message from the client to the server, requesting a new challenge.
 	ResponseChallenge        // ResponseChallenge is a message from the server to the client, containing a challenge for the client.
-	RequestResource          // RequestResource is a message from the client to the server, containing a solved challenge.
-	ResponseResource         // ResponseResource is a message from the server to the client, containing useful information if the solution is correct, or an error if it is not.
+	RequestSolution          // RequestSolution is a message from the client to the server, containing a solved challenge.
+	ResponseSolution         // ResponseSolution is a message from the server to the client, containing useful information if the solution is correct, or an error if it is not.
 )
 
-// Message represents a message structure used by both the server and client.
 type Message struct {
 	Header  int    // Header represents the type of the message, indicating its purpose or action.
 	Payload string // Payload contains the data associated with the message, which can be in JSON format, a quote, or empty.

@@ -88,7 +88,7 @@ func HandleConnection(ctx context.Context, readerConn io.Reader, writerConn io.W
 
 	// Step 4: Send challenge solution back to the server
 	err = sendMsg(protocol.Message{
-		Header:  protocol.RequestResource,
+		Header:  protocol.RequestSolution,
 		Payload: string(byteData),
 	}, writerConn)
 	if err != nil {

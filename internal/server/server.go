@@ -104,7 +104,7 @@ func ProcessRequest(ctx context.Context, msgStr string, clientInfo string, log *
 		if err != nil {
 			return nil, err
 		}
-	case protocol.RequestResource:
+	case protocol.RequestSolution:
 		log.Infof("client %s requests resource with payload", clientInfo)
 		responseMsg, err = processResourceRequest(ctx, msg.Payload, clientInfo, log)
 		if err != nil {
@@ -163,7 +163,7 @@ func processResourceRequest(ctx context.Context, payload string, clientInfo stri
 	log.Infof("client %s successfully computed hashcash", clientInfo)
 
 	responseMsg := protocol.Message{
-		Header:  protocol.ResponseResource,
+		Header:  protocol.ResponseSolution,
 		Payload: Quotes[rand.Intn(3)],
 	}
 
