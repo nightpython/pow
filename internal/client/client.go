@@ -68,7 +68,7 @@ func HandleConnection(ctx context.Context, readerConn io.Reader, writerConn io.W
 		log.Errorf("error parsing hashcash: %v", err)
 		return "", fmt.Errorf("error parse hashcash: %w", err)
 	}
-	log.Infof("got hashcash: %+v", hashcash)
+	log.Info("got hashcash")
 
 	// Step 3: Compute hashcash
 	conf := ctx.Value("config").(*config.Config)
@@ -77,7 +77,7 @@ func HandleConnection(ctx context.Context, readerConn io.Reader, writerConn io.W
 		log.Errorf("error computing hashcash: %v", err)
 		return "", fmt.Errorf("error compute hashcash: %w", err)
 	}
-	log.Infof("hashcash computed: %+v", hashcash)
+	log.Info("hashcash computed")
 	// Marshal solution to JSON
 	byteData, err := json.Marshal(hashcash)
 	if err != nil {
