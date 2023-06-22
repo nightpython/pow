@@ -16,7 +16,6 @@ import (
 	"pow/internal/protocol"
 )
 
-// Run is the main function that launches the client to connect and work with the server at the specified address.
 func Run(ctx context.Context, address string, log *logrus.Logger) error {
 	conn, err := net.Dial("tcp", address)
 	if err != nil {
