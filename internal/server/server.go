@@ -12,7 +12,7 @@ import (
 	"github.com/sirupsen/logrus"
 
 	"pow/internal/config"
-	"pow/internal/pow"
+	"pow/internal/hashcash"
 	"pow/internal/protocol"
 )
 
@@ -120,7 +120,7 @@ func ProcessRequest(ctx context.Context, msgStr string, clientInfo string, log *
 func createChallengeResponse(ctx context.Context, clientInfo string) (protocol.Message, error) {
 	conf := ctx.Value("config").(*config.Config)
 
-	hashcash := pow.HashcashData{
+	hashcash := hashcash.HashcashData{
 		ZerosCount: conf.HashcashZerosCount,
 		Resource:   clientInfo,
 		Counter:    0,
@@ -140,7 +140,7 @@ func createChallengeResponse(ctx context.Context, clientInfo string) (protocol.M
 }
 
 func processResourceRequest(ctx context.Context, payload string, clientInfo string, log *logrus.Logger) (protocol.Message, error) {
-	var hashcash pow.HashcashData
+	var hashcash hashcash.HashcashData
 	err := json.Unmarshal([]byte(payload), &hashcash)
 	if err != nil {
 		return protocol.Message{}, fmt.Errorf("error unmarshaling hashcash: %w", err)

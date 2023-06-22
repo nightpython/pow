@@ -12,7 +12,7 @@ import (
 	"github.com/sirupsen/logrus"
 
 	"pow/internal/config"
-	"pow/internal/pow"
+	"pow/internal/hashcash"
 	"pow/internal/protocol"
 )
 
@@ -63,7 +63,7 @@ func HandleConnection(ctx context.Context, readerConn io.Reader, writerConn io.W
 		log.Errorf("error parsing message: %v", err)
 		return "", fmt.Errorf("error parse msg: %w", err)
 	}
-	var hashcash pow.HashcashData
+	var hashcash hashcash.HashcashData
 	err = json.Unmarshal([]byte(msg.Payload), &hashcash)
 	if err != nil {
 		log.Errorf("error parsing hashcash: %v", err)
