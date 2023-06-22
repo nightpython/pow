@@ -7,7 +7,7 @@ import (
 	"github.com/sirupsen/logrus"
 
 	"pow/internal/client"
-	"pow/internal/pkg/config"
+	"pow/internal/config"
 )
 
 func main() {

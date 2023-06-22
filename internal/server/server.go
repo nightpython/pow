@@ -11,9 +11,9 @@ import (
 
 	"github.com/sirupsen/logrus"
 
-	"pow/internal/pkg/config"
-	"pow/internal/pkg/pow"
-	"pow/internal/pkg/protocol"
+	"pow/internal/config"
+	"pow/internal/pow"
+	"pow/internal/protocol"
 )
 
 // Quotes - const array of quotes to respond on client's request

@@ -11,9 +11,9 @@ import (
 
 	"github.com/sirupsen/logrus"
 
-	"pow/internal/pkg/config"
-	"pow/internal/pkg/pow"
-	"pow/internal/pkg/protocol"
+	"pow/internal/config"
+	"pow/internal/pow"
+	"pow/internal/protocol"
 )
 
 // Run is the main function that launches the client to connect and work with the server at the specified address.

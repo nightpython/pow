@@ -8,7 +8,7 @@ import (
 
 	"github.com/sirupsen/logrus"
 
-	"pow/internal/pkg/config"
+	"pow/internal/config"
 	"pow/internal/server"
 )
 
