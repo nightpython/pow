@@ -11,7 +11,7 @@ import (
 
 	"github.com/sirupsen/logrus"
 
-	"pow/internal/config"
+	"pow/config"
 	"pow/internal/hashcash"
 	"pow/internal/protocol"
 )
